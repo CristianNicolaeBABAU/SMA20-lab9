@@ -2,6 +2,8 @@ package com.upt.cti.smartwallet;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -48,6 +50,14 @@ public class PaymentActivityLayout extends AppCompatActivity {
         // setup firebase
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference();
+
+        listPayments.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(getApplicationContext(), "Clicked on " + payments.get(i), Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(), AddPaymentActivity.class));
+            }
+        });
 
     }
     private void onPrev(){

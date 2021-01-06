@@ -16,4 +16,8 @@ public class PaymentType {
         else
             return Color.rgb(100, 100, 100);
     }
+
+    public static String[] getTypes(){
+        return new String[]{"electrocasnice", "mancare", "facturi", "scoala-online", "donatii"};
+    }
 }
